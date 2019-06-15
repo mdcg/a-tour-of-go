@@ -70,3 +70,45 @@ a[:10]
 a[0:]
 a[:]
 ```
+
+- Uma slice tem tanto um tamanho quanto uma capacidade;
+- O comprimento de uma slice é o número de elementos que ela contém;
+- A capacidade de uma slice é o número de elementos na matriz subjacente, contando a partir do primeiro elemento na slice;
+- O valor zero de uma slice é nil;
+- As slices podem ser criadas com a função `make` padrão; isto é, como você criar matrizes dinâmicamente;
+- O função `make` aloca uma matriz zerada e retorna uma slice que se refere a essa matriz:
+
+```
+a := make([]int, 5)     // len(a) = 5
+b := make([]int, 0, 5)  // len(b) = 0, cap(b) = 5
+```
+
+- Para adicionar novos elementos a uma slice, Go dispõe da função ``append;
+
+```
+func append(s[]T, vs ...T) []T
+```
+
+# Range
+
+- O `range` do laço `for` itera sobre ua slice ou map;
+- Ao iterar sobre uma slice, dois valores são retornados para cada iteração. O primeiro é o indice, o segundo uma cópia do elemento daquele índice;
+- Você pode ignorar o índice ou valor, atribuindo o `_`;
+
+# Maps
+
+- Um map mapeia chaves para valores;
+- o valor zero de um map é nil;
+- Um map nil não tem chaves, nem chaves podem ser adicionadas;
+- A função make retorna um map com um tipo determinado;
+- Maps literais são como structs literais, mas as chaves são obrigatórias;
+- Se o tipo de nível superior é apenas um nome do tipo, você pode omiti-lo;
+
+# Funções valores
+
+- Função são valores também. Elas podem ser passdas assim como outros valores;
+- Elas podem ser passadas como argumentos de funções e retornar valores.
+
+# Closures
+
+- As funções em Go podem ser closures. Um closure é uma função valor que referencia variáveis de fora de seu corpo. A função pode acessar e atribuir nas variáveis referenciadas; nesse sentido a função é "limitada" às variáveis.
